@@ -250,15 +250,87 @@ class And extends Component {
     )
   }
 }
+class Login extends Component {
+  render() {
+    return(
+      <div>您已登陆</div>
+    )
+  }
+}
+class Logout extends Component {
+  render() {
+    return(
+      <div>您尚未登陆</div>
+    )
+  }
+}
 class TernaryOperator extends Component {
-  constuctor() {
-    
+  constructor() {
+    super();
+    this.state = {
+      isLogin: false,
+    }
   }
   render() {
     return(
       <div>
-        <div>根据this.state.isLogin的不同的值、运用三目运算符来切换组件。当isLogin的值为true的时候，显示login组件，当isLogin的值为false的时候，显示logout组件，</div>
+        <div>根据this.state.isLogin的不同的值、运用三目运算符来切换组件。当isLogin的值为true的时候，显示login组件，当isLogin的值为false的时候，显示logout组件。</div>
+        <div className='is-logout'>{this.state.isLogin? <Login /> : <Logout/>}</div>
       </div>
+    )
+  }
+}
+class PreventConditionRendering extends Component{
+  render() {
+    if(false) {
+      var a = <h2>hahh~</h2>
+    }else {
+      var a = null;
+    }
+    return(
+      <div>
+        <span>在一些情况下，可能希望隐藏某个组件。实现方法:让 render 方法返回 null即可。好处是组件的 render 方法返回 null 并不会影响该组件生命周期方法的回调。</span>
+        <div>{a}</div>
+      </div>
+    )
+  }
+}
+class MapArr extends Component {
+  render() {
+    const arr = [1,2,3,4,5];
+    const arrItems = arr.map((elem,index) => 
+      <li key={index}>{elem}</li>
+    );
+    //arr.map( => ); 每一个需要有一个key，否则会有警告
+    return(
+      <ul>{arrItems}</ul>
+    )
+  }
+}
+class MapObject extends Component {
+  render() {
+    const obj = [{
+      id: '001',
+      content: '我是001,收到请回答'
+    },{
+      id: '002',
+      content: '我是002,收到请回答'
+    },{
+      id: '003',
+      content: '我是003,收到请回答'
+    }];
+    const objItems = obj.map(elem => 
+      <li key={elem.id}>{elem.content}</li>
+    );
+    return(
+      <div>{objItems}</div>
+    )
+  }
+}
+class MapComponent extends Component {
+  render() {
+    return(
+      <div>1</div>
     )
   }
 }
@@ -281,6 +353,10 @@ class TernaryOperator extends Component {
             <p><Link to='/TransmissionParameters'>函数传参</Link></p>
             <p><Link to='/And'>与运算符</Link></p>
             <p><Link to='/TernaryOperator'>三目运算符</Link></p>
+            <p><Link to='/PreventConditionRendering'>阻止条件渲染</Link></p>
+            <p><Link to='/MapArr'>map循环数组</Link></p>
+            <p><Link to='/MapObject'>map数组对象</Link></p>
+            <p><Link to='/MapComponent'>map循环组件</Link></p>
             <div className="content">
               <Route path="/HelloWorld" component={HelloWorld}></Route>
               <Route path="/JSX" component={JSX}></Route>
@@ -295,6 +371,10 @@ class TernaryOperator extends Component {
               <Route path='/TransmissionParameters' component={TransmissionParameters}></Route>
               <Route path='/And' component={And}></Route>
               <Route path='/TernaryOperator' component={TernaryOperator}></Route>
+              <Route path='/PreventConditionRendering' component={PreventConditionRendering}></Route>
+              <Route path='/MapArr' component={MapArr}></Route>
+              <Route path='/MapObject' component={MapObject}></Route>
+              <Route path='/MapComponent' component={MapComponent}></Route>
             </div>
           </div>
         </Router>
