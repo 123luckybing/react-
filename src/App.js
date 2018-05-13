@@ -5,7 +5,7 @@ import {  BrowserRouter as Router,Route,Link, hashHistory} from 'react-router-do
 class Child extends Component {
   render() {
     return(
-      <div style={{'margin-top':'20px','margin-left':'160px'}}>
+      <div style={{'marginTop':'20px','marginLeft':'160px'}}>
         Hello ~~{this.props.name}!
       </div>
     )
@@ -16,7 +16,7 @@ class Parent extends Component {
     return(
       <div>
         <Child name="zhangsan"/>
-        <div style={{'margin-top':'10px'}}>思路：父组件给子组件传值，在父组件中引入子组件，子组件通过this.prop取值</div>
+        <div style={{'marginTop':'10px'}}>思路：父组件给子组件传值，在父组件中引入子组件，子组件通过this.prop取值</div>
       </div>
     );
   }
@@ -113,7 +113,7 @@ class ComponentUpdate extends Component {
       <div>
         <span>现在时间是：</span>
         <span>{this.state.time.toLocaleTimeString()}</span><br/>
-        <div style={{'margin-top': '20px'}}>思路：组件只更新必要的部分，其他没做改变的部分不会更新。先声明this.state.time，把定时器写进constructor里，利用this.setState每秒更新time</div>
+        <div style={{'marginTop': '20px'}}>思路：组件只更新必要的部分，其他没做改变的部分不会更新。先声明this.state.time，把定时器写进constructor里，利用this.setState每秒更新time</div>
       </div>
       );
     return(
@@ -128,7 +128,136 @@ class GroupComponent extends Component {
         <Child name='章三'/>
         <Child name='李四'/>
         <Child name='王五'/>
-        <div style={{'margin-top':'10px'}}>思路：调用多次子组件，每次传不同的值，进行渲染</div>
+        <div style={{'marginTop':'10px'}}>思路：调用多次子组件，每次传不同的值，进行渲染</div>
+      </div>
+    )
+  }
+}
+class LifecycleComponent extends Component{
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+  // 挂载前
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+  //挂载后
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+  //更新前
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+  //更新后
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+  //卸载前
+  constructor() {
+    super();
+    this.state = {
+      num: 0,
+    }
+    this.add = this.add.bind(this);
+  }
+  add() {
+    this.setState({
+      num : this.state.num + 1,
+    });
+  }
+  render() {
+    return(
+      <div>
+        <div>生命周期：console里输出相应的状态</div>
+        <div>{this.state.num}</div>
+        <button onClick={this.add}>点击加一</button>
+      </div>
+    )
+  }
+} 
+class PreventDefault extends Component {
+  constructor() {
+    super();
+    this.handle = this.handle.bind(this);
+  }
+  handle(e) {
+    e.preventDefault();
+    //阻止浏览器默认行为e.preventDefault();
+    console.log('The link was clicked.');
+  }
+  render() {
+    return(
+      <div>
+        <div>组织浏览器默认行为 e.preventDefault。点击按钮不跳转，控制台输出The link was clicked.</div>
+        <a href="www.baidu.com" onClick = {this.handle}>百度</a>
+      </div>
+    )
+  }
+}
+class ToggleButton extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isToggle : 'true',
+    }
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle() {
+    this.setState({
+      isToggle: !this.state.isToggle,
+    });
+  }
+  render() {
+    return(
+      <div>
+        <div>思路:给按钮绑定点击事件，通过点击事件来改变this.state.isToggle的值，同时通过 this.state.isToggle ? 'ON':'OFF' 来改变button里面的值</div>
+        <button onClick={this.toggle}> { this.state.isToggle ? 'ON':'OFF' }</button>
+      </div>
+    )
+  }
+}
+class TransmissionParameters extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'zhangsan',
+    }
+    this.alertName = this.alertName.bind(this,this.state.name);
+  }
+  alertName(name) {
+    alert(name);
+  }
+  render() {
+    return(
+      <div>
+        <div>当点击按钮时，触发this.alertName方法，在给this.alertName绑定this的时候，可以传入参数，然后传入的参数通过方法来进行处理。</div>
+        <button onClick={this.alertName}>点出弹出姓名</button>
+      </div>
+    )
+  }
+}
+class And extends Component {
+  render() {
+    const message = ["hello","this","is","a","bird"];
+    return(
+     <div>
+     <div>hello</div>
+     {
+      message.length>0 && <h6>您有{message.length}条消息未读</h6>
+     }
+     </div>
+    )
+  }
+}
+class TernaryOperator extends Component {
+  constuctor() {
+    
+  }
+  render() {
+    return(
+      <div>
+        <div>根据this.state.isLogin的不同的值、运用三目运算符来切换组件。当isLogin的值为true的时候，显示login组件，当isLogin的值为false的时候，显示logout组件，</div>
       </div>
     )
   }
@@ -146,6 +275,12 @@ class GroupComponent extends Component {
             <p><Link to='/ComponentUpdate'>组件更新</Link></p>
             <p><Link to='/Parent'>组件传值</Link></p>
             <p><Link to='/GroupComponent'>组合组件</Link></p>
+            <p><Link to='/LifecycleComponent'>生命周期</Link></p>
+            <p><Link to='/PreventDefault'>阻止默认行为</Link></p>
+            <p><Link to='/ToggleButton'>切换按钮</Link></p>
+            <p><Link to='/TransmissionParameters'>函数传参</Link></p>
+            <p><Link to='/And'>与运算符</Link></p>
+            <p><Link to='/TernaryOperator'>三目运算符</Link></p>
             <div className="content">
               <Route path="/HelloWorld" component={HelloWorld}></Route>
               <Route path="/JSX" component={JSX}></Route>
@@ -154,6 +289,12 @@ class GroupComponent extends Component {
               <Route path='/ComponentUpdate' component={ComponentUpdate}></Route>
               <Route path='/Parent' component={Parent}></Route>
               <Route path='/GroupComponent' component={GroupComponent}></Route>
+              <Route path='/LifecycleComponent' component={LifecycleComponent}></Route>
+              <Route path='/PreventDefault' component={PreventDefault}></Route>
+              <Route path='/ToggleButton' component={ToggleButton}></Route>
+              <Route path='/TransmissionParameters' component={TransmissionParameters}></Route>
+              <Route path='/And' component={And}></Route>
+              <Route path='/TernaryOperator' component={TernaryOperator}></Route>
             </div>
           </div>
         </Router>
