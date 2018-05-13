@@ -329,8 +329,23 @@ class MapObject extends Component {
 }
 class MapComponent extends Component {
   render() {
+    const num = [1,2,3,4,5]; 
     return(
-      <div>1</div>
+      <div>
+        <MapItems value={num} key={num}/>
+        {/* key在这里声明 */}
+      </div>
+    )
+  }
+}
+class MapItems extends Component {
+  render() {
+    const numArr = this.props.value;
+    const numItems = numArr.map(elem => 
+      <li key={elem}>{elem}</li>
+    );
+    return(
+      <ul>{numItems}</ul>
     )
   }
 }
