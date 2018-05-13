@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper p {
+  text-align: center;
+  line-height: 30px;
+  width: 100px;
+  height: 30px;
+  background: lightpink;
+  opacity: 0.8;
+  float: left;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.wrapper {
+  width: 550px;
+  height: 100px;
+  border: 1px solid black;
+  margin-left: 300px;
+  margin-top: 45px;
+}
+
+.wrapper p a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper p a:hover {
+  color: grey;
+}
+
+.content {
+  margin-top: 100px;
+}
+
+.is-login {
+  color: red;
+  background: #fff;
+  font-size: 14px;
+}
+
+.is-login-content {
+  margin-top: 20px;
+  margin-left: 170px;
+}
