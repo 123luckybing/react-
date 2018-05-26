@@ -8,15 +8,20 @@ class Select extends Component {
     this.valueChange = this.valueChange.bind(this);
     this.handleValue = this.handleValue.bind(this);
   }
+
+  //提交表单
   handleValue (e) {
     e.preventDefault();
     alert("您选择的爱好是:" + this.state.value);
   }
+
+  //下拉菜单数据变化
   valueChange(event) {
     this.setState({
       value: event.target.value,
     });
   }
+  
   render() {
     return(
       <div>

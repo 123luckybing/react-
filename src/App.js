@@ -3,6 +3,7 @@ import './App.css';
 
 import {  BrowserRouter as Router,Route,Link, hashHistory} from 'react-router-dom';
 import Child from './Child';
+import Chat from './Chat';
 import HelloWorld from './HelloWorld';
 import Parent from './Parent';
 import IsLogin from './IsLogin';
@@ -20,12 +21,15 @@ import Logout from './Logout';
 import TernaryOperator from './TernaryOperator';
 import PreventConditionRendering from './PreventConditionRendering';
 import MapArr from './MapArr';
-import  MapObject from './MapObject';
+import MapObject from './MapObject';
 import MapComponent from './MapComponent';
 import Form from './Form';
 import Select from './Select';
 import File from './File';
 import LiftingStateUp from './LiftingStateUp';
+import DataSame from './DataSame';
+import FilterableProductTable from './FilterableProductTable';
+import Game from './Game';
  class App extends Component {
   render() {
     return (
@@ -53,6 +57,10 @@ import LiftingStateUp from './LiftingStateUp';
             <p><Link to='/Select'>下拉菜单</Link></p>
             <p><Link to='/File'>上传文件</Link></p>
             <p><Link to='/LiftingStateUp'>状态提升</Link></p>
+            <p><Link to='/DataSame'>数据同步</Link></p>
+            <p><Link to='/Chat'>组合</Link></p>
+            <p><Link to='/FilterableProductTable'>React理念</Link></p>
+            <p><Link to='/Game'>react小游戏</Link></p>
             <div className="content">
               <Route path="/HelloWorld" component={HelloWorld}></Route>
               <Route path="/JSX" component={JSX}></Route>
@@ -75,6 +83,10 @@ import LiftingStateUp from './LiftingStateUp';
               <Route path='/Select' component={Select}></Route>
               <Route path='/File' component={File}></Route>
               <Route path='/LiftingStateUp' component={LiftingStateUp}></Route>
+              <Route path='/DataSame' component={DataSame}></Route>
+              <Route path='/Chat' component={Chat}></Route>
+              <Route path='/FilterableProductTable' component={FilterableProductTable}></Route>
+              <Route path='/Game' component={Game}></Route>
             </div>
           </div>
         </Router>

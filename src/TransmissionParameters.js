@@ -7,9 +7,12 @@ class TransmissionParameters extends Component {
     }
     this.alertName = this.alertName.bind(this,this.state.name);
   }
+
+  //弹出传入的参数
   alertName(name) {
     alert(name);
   }
+  
   render() {
     return(
       <div>

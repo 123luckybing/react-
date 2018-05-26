@@ -4,6 +4,8 @@ class PreventDefault extends Component {
     super();
     this.handle = this.handle.bind(this);
   }
+
+  //阻止浏览器默认行为
   handle(e) {
     e.preventDefault();
     //阻止浏览器默认行为e.preventDefault();

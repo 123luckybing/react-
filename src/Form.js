@@ -8,15 +8,20 @@ class Form extends Component {
     this.valueChange = this.valueChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
   }
+
+  //输入框数据变化
   valueChange(e) {
     this.setState({
       value: e.target.value,
     });
   }
+
+  //表单提交
   formSubmit(event) {
     alert('您输入的名字是:'+ this.state.value);
     event.preventDefault();
   }
+  
   render() {
     return(
       <div>

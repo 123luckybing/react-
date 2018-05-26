@@ -10,7 +10,7 @@ class ComponentUpdate extends Component {
         time: new Date(),
       })
     },1000);
-    //setInterval写进constructor里面
+    //setInterval写进constructor里面,每秒更新时间
   }
   render() {
     const time = (

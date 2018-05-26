@@ -7,11 +7,14 @@ class ToggleButton extends Component {
     }
     this.toggle = this.toggle.bind(this);
   }
+
+  //按钮状态切换
   toggle() {
     this.setState({
       isToggle: !this.state.isToggle,
     });
   }
+  
   render() {
     return(
       <div>

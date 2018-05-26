@@ -15,6 +15,7 @@ class IsLogin extends Component {
     }else {
      var content = "您好！请先登录～";
     }
+    
     return(
       <div>
         <span>
