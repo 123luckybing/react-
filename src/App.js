@@ -30,6 +30,7 @@ import LiftingStateUp from './LiftingStateUp';
 import DataSame from './DataSame';
 import FilterableProductTable from './FilterableProductTable';
 import Game from './Game';
+// import con
  class App extends Component {
   render() {
     return (
@@ -60,6 +61,7 @@ import Game from './Game';
             <p><Link to='/DataSame'>数据同步</Link></p>
             <p><Link to='/Chat'>组合</Link></p>
             <p><Link to='/FilterableProductTable'>React理念</Link></p>
+
             <p><Link to='/Game'>react小游戏</Link></p>
             <div className="content">
               <Route path="/HelloWorld" component={HelloWorld}></Route>
