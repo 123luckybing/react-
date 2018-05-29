@@ -61,3 +61,42 @@ button {
   background: lightcoral;
   text-align: center;
 }
+
+.title-wrapper {
+  display: -webkit-box;
+  width: 100%;
+}
+
+.title-wrapper div {
+  width: 0;
+  -webkit-box-flex: 1;
+  text-align: center;
+}
+
+button.girl,
+button.boy,
+button.all {
+  width: 100px;
+  height: 20px;
+  border: 1px solid grey;
+  line-height: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.todolist-li {
+  list-style: none;
+}
+
+.todolist-li button {
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 20px; 
+  text-align: center;
+  margin-top: 0;
+}
+
+

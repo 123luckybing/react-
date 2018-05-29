@@ -4,7 +4,7 @@ class Square extends Component {
     super();
     this.btnClick = this.btnClick.bind(this);
   }
-  btnClick() {
+  btnClick(i) {
     this.props.btClick();
   }
   render() {

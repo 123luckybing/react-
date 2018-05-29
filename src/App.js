@@ -30,7 +30,8 @@ import LiftingStateUp from './LiftingStateUp';
 import DataSame from './DataSame';
 import FilterableProductTable from './FilterableProductTable';
 import Game from './Game';
-// import con
+import InformationSearch from './InformationSearch';
+import Todolist from './Todolist';
  class App extends Component {
   render() {
     return (
@@ -61,8 +62,9 @@ import Game from './Game';
             <p><Link to='/DataSame'>数据同步</Link></p>
             <p><Link to='/Chat'>组合</Link></p>
             <p><Link to='/FilterableProductTable'>React理念</Link></p>
-
+            <p><Link to='/InformationSearch'>信息检索</Link></p>
             <p><Link to='/Game'>react小游戏</Link></p>
+            <p><Link to='/Todolist'>Todolist</Link></p>
             <div className="content">
               <Route path="/HelloWorld" component={HelloWorld}></Route>
               <Route path="/JSX" component={JSX}></Route>
@@ -89,6 +91,8 @@ import Game from './Game';
               <Route path='/Chat' component={Chat}></Route>
               <Route path='/FilterableProductTable' component={FilterableProductTable}></Route>
               <Route path='/Game' component={Game}></Route>
+              <Route path='/Todolist' component={Todolist}></Route>
+              <Route path='/InformationSearch' component={InformationSearch}></Route>
             </div>
           </div>
         </Router>
